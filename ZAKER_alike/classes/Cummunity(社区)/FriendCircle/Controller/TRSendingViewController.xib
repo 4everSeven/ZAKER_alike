@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRSendingViewController">
+            <connections>
+                <outlet property="buttonView" destination="iay-pY-OJh" id="2vB-Dm-y68"/>
+                <outlet property="imageCountLabel" destination="uQJ-4k-zqF" id="4H6-jv-rSq"/>
+                <outlet property="locationLabel" destination="cgj-Yt-MFP" id="kU9-qT-61e"/>
+                <outlet property="locationbtn" destination="oQY-k7-0M8" id="XWV-J2-0MK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iay-pY-OJh">
+                    <rect key="frame" x="0.0" y="593" width="375" height="74"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laf-iN-guD">
+                            <rect key="frame" x="0.0" y="34" width="52" height="39"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="compose_toolbar_picture.png"/>
+                            <state key="highlighted" image="compose_toolbar_picture_highlighted.png"/>
+                            <connections>
+                                <action selector="clicked:" destination="-1" eventType="touchUpInside" id="k84-Yz-1QR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQY-k7-0M8">
+                            <rect key="frame" x="1" y="0.0" width="99" height="30"/>
+                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="所在位置" image="location.png">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="locationAction:" destination="-1" eventType="touchUpInside" id="ha2-Lg-4Ln"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIT-DQ-bbI">
+                            <rect key="frame" x="52" y="34" width="52" height="39"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="compose_emoticonbutton_background.png"/>
+                            <state key="highlighted" image="compose_emoticonbutton_background_highlighted.png"/>
+                            <connections>
+                                <action selector="clicked:" destination="-1" eventType="touchUpInside" id="ngZ-wp-mdN"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" alpha="0.69999998807907104" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Jw-wA-nbc">
+                            <rect key="frame" x="104" y="34" width="52" height="39"/>
+                            <state key="normal" title="Button" image="2.png"/>
+                            <connections>
+                                <action selector="clicked:" destination="-1" eventType="touchUpInside" id="kDf-20-OFc"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39S-Bt-CDi">
+                            <rect key="frame" x="0.0" y="73" width="375" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQJ-4k-zqF">
+                            <rect key="frame" x="26" y="38" width="16" height="16"/>
+                            <color key="backgroundColor" red="1" green="0.064200611399999996" blue="0.25340426090000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgj-Yt-MFP">
+                            <rect key="frame" x="104" y="6" width="263" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.22989360519999999" green="0.64387716419999996" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="187.5" y="168.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="2.png" width="71" height="72"/>
+        <image name="compose_emoticonbutton_background.png" width="24" height="24"/>
+        <image name="compose_emoticonbutton_background_highlighted.png" width="24" height="24"/>
+        <image name="compose_toolbar_picture.png" width="24" height="24"/>
+        <image name="compose_toolbar_picture_highlighted.png" width="24" height="24"/>
+        <image name="location.png" width="10" height="12"/>
+    </resources>
+</document>

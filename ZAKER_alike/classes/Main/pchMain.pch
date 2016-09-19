@@ -1,0 +1,33 @@
+//
+//  pchMain.pch
+//  ZAKER_alike
+//
+//  Created by 王思齐 on 16/8/30.
+//  Copyright © 2016年 wangsiqi. All rights reserved.
+//
+
+#ifndef pchMain_pch
+#define pchMain_pch
+
+#import <AFNetworking.h>
+#import <UIImageView+WebCache.h>
+#import <MJExtension.h>
+//#import "UIViewExt.h"
+//#import <MBProgressHUD.h>
+#import <BmobSDK/Bmob.h>
+//屏幕
+#define SQSW [UIScreen mainScreen].bounds.size.width
+#define SQSH [UIScreen mainScreen].bounds.size.height
+
+//系统默认的颜色
+#define MainRed [UIColor colorWithRed:1 green:0.27 blue:0.26 alpha:1]
+#endif /* pchMain_pch */
+
+//系统订阅部分默认的背景色
+#define MainBgColor [UIColor colorWithRed:0.9255 green:0.9255 blue:0.9255 alpha:1]
+
+//朋友圈图片尺寸
+#define ImageSize 112
+
+#define TextSize 12
+#define Margin 10

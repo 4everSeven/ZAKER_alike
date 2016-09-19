@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FriendCircleViewController">
+            <connections>
+                <outlet property="imageViewTop" destination="Lnd-CN-TqL" id="ddV-f4-DAQ"/>
+                <outlet property="loginButton" destination="3Tb-DT-3Q7" id="rk9-wi-JSV"/>
+                <outlet property="signInButton" destination="F8a-xe-EBn" id="jZY-9a-Y5m"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FeaturesGallery-1" translatesAutoresizingMaskIntoConstraints="NO" id="der-73-S7I">
+                    <rect key="frame" x="0.0" y="36" width="375" height="355"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="der-73-S7I" secondAttribute="height" multiplier="640:605" id="ROh-d4-bJh"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tb-DT-3Q7">
+                    <rect key="frame" x="60" y="431" width="255" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="mcN-FG-gno"/>
+                    </constraints>
+                    <state key="normal" title="登录"/>
+                    <connections>
+                        <action selector="loginClicked:" destination="-1" eventType="touchUpInside" id="Ki2-FG-JMr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8a-xe-EBn">
+                    <rect key="frame" x="60" y="491" width="255" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Ak6-S7-54e"/>
+                    </constraints>
+                    <state key="normal" title="注册"/>
+                    <connections>
+                        <action selector="signUpClicked:" destination="-1" eventType="touchUpInside" id="xs8-1g-Uh2"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="der-73-S7I" secondAttribute="trailing" id="GE3-GL-qRx"/>
+                <constraint firstItem="der-73-S7I" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="Lnd-CN-TqL"/>
+                <constraint firstItem="der-73-S7I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MJC-uS-m2D"/>
+                <constraint firstItem="F8a-xe-EBn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="N8k-CB-qvo"/>
+                <constraint firstAttribute="trailing" secondItem="3Tb-DT-3Q7" secondAttribute="trailing" constant="60" id="SB6-Ut-dCl"/>
+                <constraint firstItem="3Tb-DT-3Q7" firstAttribute="top" secondItem="der-73-S7I" secondAttribute="bottom" constant="40" id="aXG-Is-lhx"/>
+                <constraint firstAttribute="trailing" secondItem="F8a-xe-EBn" secondAttribute="trailing" constant="60" id="abQ-DI-kkk"/>
+                <constraint firstItem="3Tb-DT-3Q7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="cZD-e8-kno"/>
+                <constraint firstItem="F8a-xe-EBn" firstAttribute="top" secondItem="3Tb-DT-3Q7" secondAttribute="bottom" constant="20" id="tAi-Qe-ATC"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="FeaturesGallery-1" width="320" height="302"/>
+    </resources>
+</document>

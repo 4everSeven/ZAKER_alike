@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="143" id="KGk-i7-Jjw" customClass="FunTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qRv-sf-3tn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VXR-D2-tVU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcd-MU-938">
+                                <rect key="frame" x="164" y="80" width="48" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw6-MN-oxv">
+                                <rect key="frame" x="171" y="102" width="33" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Tcd-MU-938" firstAttribute="centerX" secondItem="VXR-D2-tVU" secondAttribute="centerX" id="3jt-Dv-l6a"/>
+                            <constraint firstItem="iw6-MN-oxv" firstAttribute="centerX" secondItem="VXR-D2-tVU" secondAttribute="centerX" id="f54-aZ-LuU"/>
+                            <constraint firstItem="Tcd-MU-938" firstAttribute="top" secondItem="VXR-D2-tVU" secondAttribute="top" constant="80" id="itD-Ct-4NR"/>
+                            <constraint firstItem="iw6-MN-oxv" firstAttribute="top" secondItem="Tcd-MU-938" secondAttribute="bottom" id="yXS-8o-Und"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qRv-sf-3tn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Hsd-Y2-an5"/>
+                    <constraint firstItem="qRv-sf-3tn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="N98-zR-AmO"/>
+                    <constraint firstAttribute="trailing" secondItem="qRv-sf-3tn" secondAttribute="trailing" id="PQq-OC-2EK"/>
+                    <constraint firstAttribute="bottom" secondItem="qRv-sf-3tn" secondAttribute="bottom" id="YCf-6b-l2q"/>
+                    <constraint firstAttribute="bottom" secondItem="VXR-D2-tVU" secondAttribute="bottom" id="j6s-oc-z70"/>
+                    <constraint firstAttribute="trailing" secondItem="VXR-D2-tVU" secondAttribute="trailing" id="rgT-hU-ebr"/>
+                    <constraint firstItem="VXR-D2-tVU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sKZ-j9-8JC"/>
+                    <constraint firstItem="VXR-D2-tVU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ytl-f5-SeX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="LGView" destination="VXR-D2-tVU" id="94u-vw-ckN"/>
+                <outlet property="bgImageView" destination="qRv-sf-3tn" id="duQ-w4-c66"/>
+                <outlet property="contentLabel" destination="iw6-MN-oxv" id="VCs-j2-qSG"/>
+                <outlet property="titleLabel" destination="Tcd-MU-938" id="2s3-tN-z1f"/>
+            </connections>
+            <point key="canvasLocation" x="244.5" y="318"/>
+        </tableViewCell>
+    </objects>
+</document>

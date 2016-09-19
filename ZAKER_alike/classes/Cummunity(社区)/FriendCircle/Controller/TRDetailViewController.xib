@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRDetailViewController">
+            <connections>
+                <outlet property="commentBar" destination="72g-dn-p53" id="e4t-Xh-Phh"/>
+                <outlet property="commentTV" destination="FXk-4C-8qu" id="dfx-ut-yda"/>
+                <outlet property="imageCountLabel" destination="u4C-0F-Xek" id="qvW-Pv-07W"/>
+                <outlet property="tableView" destination="E2c-fM-CJV" id="ouy-Wl-xo7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1014"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E2c-fM-CJV">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="qIw-6I-Mn3"/>
+                        <outlet property="delegate" destination="-1" id="aVx-xk-mjH"/>
+                    </connections>
+                </tableView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXL-Hf-0PM">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <items>
+                        <barButtonItem id="HtS-4b-eMh"/>
+                        <barButtonItem style="plain" id="LjI-4a-9Qs">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EKQ-Tv-ok5">
+                                <rect key="frame" x="18" y="7" width="352" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="点击评论">
+                                    <color key="titleColor" white="0.63003039360000002" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="commentBtnAction:" destination="-1" eventType="touchUpInside" id="inH-ru-Wo5"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="72g-dn-p53">
+                    <rect key="frame" x="0.0" y="669" width="375" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxW-ee-bMu">
+                            <rect key="frame" x="0.0" y="2" width="40" height="39"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="compose_toolbar_picture.png"/>
+                            <state key="highlighted" image="compose_toolbar_picture_highlighted.png"/>
+                            <connections>
+                                <action selector="clicked:" destination="-1" eventType="touchUpInside" id="W8A-SJ-b0a"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLp-lG-u4c">
+                            <rect key="frame" x="40" y="2" width="37" height="39"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="compose_emoticonbutton_background.png"/>
+                            <state key="highlighted" image="compose_emoticonbutton_background_highlighted.png"/>
+                            <connections>
+                                <action selector="clicked:" destination="-1" eventType="touchUpInside" id="Nt3-bU-2mi"/>
+                            </connections>
+                        </button>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4C-0F-Xek">
+                            <rect key="frame" x="24" y="5" width="16" height="16"/>
+                            <color key="backgroundColor" red="1" green="0.064200611399999996" blue="0.25340426090000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="173-v2-XvF">
+                            <rect key="frame" x="329" y="7" width="30" height="30"/>
+                            <state key="normal" title="发送"/>
+                            <connections>
+                                <action selector="sendAction:" destination="-1" eventType="touchUpInside" id="TlP-yh-FyA"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" alpha="0.69999998807907104" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHL-Xr-j6X">
+                            <rect key="frame" x="74" y="4" width="36" height="36"/>
+                            <state key="normal" title="Button" image="2.png"/>
+                            <connections>
+                                <action selector="clicked:" destination="-1" eventType="touchUpInside" id="UwR-rZ-FRn"/>
+                            </connections>
+                        </button>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FXk-4C-8qu" customClass="YYTextView">
+                            <rect key="frame" x="108" y="9" width="213" height="29"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize_">
+                                    <real key="value" value="14"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="说点儿什么。。。"/>
+                            </userDefinedRuntimeAttributes>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-133.5" y="273"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="2.png" width="71" height="72"/>
+        <image name="compose_emoticonbutton_background.png" width="24" height="24"/>
+        <image name="compose_emoticonbutton_background_highlighted.png" width="24" height="24"/>
+        <image name="compose_toolbar_picture.png" width="24" height="24"/>
+        <image name="compose_toolbar_picture_highlighted.png" width="24" height="24"/>
+    </resources>
+</document>
