@@ -12,6 +12,7 @@
 #import "FriendCircleCell.h"
 #import "FriendItem.h"
 #import <SVPullToRefresh.h>
+#import "DetailViewController.h"
 @interface FriendCircleViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
@@ -192,6 +193,13 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     FriendItem *item = self.itObjs[indexPath.row];
     return item.totalHeight + 10;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FriendItem *item = self.itObjs[indexPath.row];
+    DetailViewController *vc = [[DetailViewController alloc]initWithNibName:@"DetailViewController" bundle:nil];
+    vc.item= item;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)setMainTab{

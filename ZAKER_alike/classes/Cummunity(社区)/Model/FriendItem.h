@@ -19,6 +19,7 @@
 @property (nonatomic, strong)BmobObject *bObj;
 
 @property(nonatomic,assign)CGFloat totalHeight;
+@property(nonatomic,assign)CGFloat detailHeight;
 
 -(instancetype)initWithBmobObject:(BmobObject *)bObj;
 

@@ -6,5 +6,6 @@ pod 'SDCycleScrollView','~> 1.64'
 pod 'SVProgressHUD'
 pod 'SVPullToRefresh'
 pod 'BmobSDK'
+pod "MWPhotoBrowser"
 
 end

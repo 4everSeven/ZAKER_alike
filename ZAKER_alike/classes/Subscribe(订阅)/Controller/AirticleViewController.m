@@ -16,10 +16,11 @@
 #import "commentCell.h"
 #import "SignInViewController.h"
 #import "UIColor+Hex.h"
+#import <MWPhotoBrowser.h>
 //#import "PhotoBroswerVC.h"
 //#import "PhotoBroswerVC.h"
 
-@interface AirticleViewController ()<UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate,UIGestureRecognizerDelegate>
+@interface AirticleViewController ()<UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate,UIGestureRecognizerDelegate,MWPhotoBrowserDelegate>
 @property(nonatomic,strong)UITableView *mainTableView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property(nonatomic,strong)UIWebView *webView;
@@ -27,6 +28,7 @@
 @property(nonatomic,strong)ArticleContentItem *contentItem;
 @property(nonatomic,strong)ArticleTopView *topView;
 @property(nonatomic,strong)FunArticleTopView *funTopView;
+@property(nonatomic,strong)NSMutableArray *imagePaths;
 
 @property(nonatomic,strong)NSArray *commentsArray;
 
@@ -219,6 +221,8 @@
         
         self.funTopView = topView;
     }
+    
+   // NSLog(@"medias:%@",self.contentItem.media);
 
 }
 
@@ -286,75 +290,64 @@
 - (NSString *)setupBody:(ArticleContentItem *)contentItem
 {
     NSMutableString *body = [NSMutableString stringWithFormat:@"%@",contentItem.content];
-    
+    self.imagePaths = [NSMutableArray array];
     [contentItem.media enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSMutableString *m_url = obj[@"m_url"];
         NSString *imgTargetString  = [NSString stringWithFormat:@"id=\"id_image_%zd\"", idx];
         NSString *imgReplaceString = [NSString stringWithFormat:@"id=\"id_image_%zd\"  src=\"%@\"", idx, m_url];
         
+       // NSLog(@"string:%@",imgReplaceString);
+        [self.imagePaths addObject:m_url];
         [body replaceOccurrencesOfString:imgTargetString withString:imgReplaceString options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
     }];
 
     return body;
 }
 
-//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-//{
-//    NSString *url = request.URL.absoluteString;
-//    NSRange range = [url rangeOfString:@"http://www.myzaker.com/?_zkcmd="];
-//    if (range.location != NSNotFound) {
-//        NSUInteger loc = range.location + range.length;
-//        NSString *src = [url substringFromIndex:loc];
-//        
-//        if ([src containsString:@"open_media"]) {
-//            NSRange indexRange = [src rangeOfString:@"&index="];
-//            NSInteger index = [[src substringFromIndex:(indexRange.location + indexRange.length)] integerValue];
-//            [self openMedia:index];
-//        }
-//        
-//        return NO;
-//    }
-//    return YES;
-//}
-//
-////点击图片进行浏览
-//- (void)openMedia:(NSInteger )index{
-//    [PhotoBroswerVC show:[UIApplication sharedApplication].keyWindow.rootViewController type:PhotoBroswerVCTypeZoom index:index photoModelBlock:^NSArray *{
-//        
-//        
-//        NSMutableArray *modelsM = [NSMutableArray arrayWithCapacity:self.contentItem.media.count];
-//        
-//        
-//        for (NSUInteger i = 0; i< self.contentItem.media.count; i++) {
-//            PhotoModel *pbModel=[[PhotoModel alloc] init];
-//            pbModel.mid = i + 1;
-//            
-//            NSString *path = self.contentItem.media[i];
-//            
-//            //设置查看大图的时候的图片地址
-//            pbModel.image_HD_U = path;
-//            
-//            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-//            [imageView sd_setImageWithURL:[NSURL URLWithString:self.contentItem.media[i]]];
-//            //源图片的frame
-//            UIImageView *imageV = imageView;
-//            pbModel.sourceImageView = imageV;
-//            [modelsM addObject:pbModel];
-//        }
-//        return modelsM;
-//        
-//    }];
-//
-//}
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSString *url = request.URL.absoluteString;
+    NSRange range = [url rangeOfString:@"http://www.myzaker.com/?_zkcmd="];
+    if (range.location != NSNotFound) {
+        NSUInteger loc = range.location + range.length;
+        NSString *src = [url substringFromIndex:loc];
+        
+        if ([src containsString:@"open_media"]) {
+            NSRange indexRange = [src rangeOfString:@"&index="];
+            NSInteger index = [[src substringFromIndex:(indexRange.location + indexRange.length)] integerValue];
+            [self openMedia:index];
+        }
+        
+        return NO;
+    }
+    return YES;
+}
 
-//UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-//[imageView sd_setImageWithURL:[NSURL URLWithString:self.contentItem.media[i]]];
-////源图片的frame
-//UIImageView *imageV = imageView;
-//pbModel.sourceImageView = imageV;
-//[modelsM addObject:pbModel];
+//点击图片进行浏览
+- (void)openMedia:(NSInteger )index{
+    MWPhotoBrowser *photoBrowser = [[MWPhotoBrowser alloc]initWithDelegate:self];
+    //设置当前要显示的图片
+    [photoBrowser setCurrentPhotoIndex:index];
+    [self.navigationController pushViewController:photoBrowser animated:YES];
+}
 
+#pragma mark - MWPhotoBrowser delegateMethods
+//返回图片个数
+-(NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
+    return self.imagePaths.count;
+}
+
+//返回图片模型
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
+    NSMutableArray *photoArray = [NSMutableArray array];
+    for (NSString *url in self.imagePaths) {
+        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:url]];
+        [photoArray addObject:photo];
+    }
+    MWPhoto *photo = photoArray[index];
+    return photo;
+}
 
 //返回之前的界面
 - (IBAction)goBackToLastVC:(UIButton *)sender {
@@ -418,9 +411,7 @@
                 NSLog(@"%@",error);
             }
         }];
-
     }
-    
 }
 
 -(void)loadComments{
@@ -434,7 +425,6 @@
     if (self.funItem) {
         [query whereKey:@"articleTitle" equalTo:self.funItem.title];
     }
-    //[query whereKey:@"articleTitle" equalTo:self.item.title];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         //NSLog(@"成绩");
         
@@ -442,8 +432,6 @@
        // NSLog(@"array:%@",self.commentsArray);
         [self.mainTableView reloadData];
     }];
-    
-    
 }
 
 #pragma mark - UITableViewDataSource delegateMethods
@@ -458,19 +446,16 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     commentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-     //NSLog(@"array:%@",self.commentsArray);
     if (self.commentsArray.count == 0) {
         cell.contentView.alpha = 0;
-        //NSLog(@"进入这个界面了？");
-        
     }else{
         cell.contentView.alpha = 1;
         cell.item = self.commentsArray[indexPath.row];
     }
-    
     return cell;
 }
 
+#pragma mark - UITableView delegateMethods
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.commentsArray.count == 0) {
         return 50;

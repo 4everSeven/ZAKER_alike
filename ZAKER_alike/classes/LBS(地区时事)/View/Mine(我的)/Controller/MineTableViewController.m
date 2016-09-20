@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameOrOtherLabel;
 @property(nonatomic,strong)UITapGestureRecognizer *tap;
 @property(nonatomic,strong)HFStretchableTableHeaderView *hfStretchView;
+@property (weak, nonatomic) IBOutlet UILabel *cacheLabel;
 
 @end
 
@@ -42,6 +43,11 @@
         [self.tableView setLayoutMargins:UIEdgeInsetsZero];
     }
     
+    //计算缓存
+    [[SDImageCache sharedImageCache]calculateSizeWithCompletionBlock:^(NSUInteger fileCount, NSUInteger totalSize) {
+        self.cacheLabel.text = [NSString stringWithFormat:@"当前缓存：%.2fM",totalSize / 1024.0 /1024];
+    }];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -62,6 +68,11 @@
        // [self.headerView removeGestureRecognizer:tap];
     }
     self.tap = tap;
+    
+     //计算缓存
+    [[SDImageCache sharedImageCache]calculateSizeWithCompletionBlock:^(NSUInteger fileCount, NSUInteger totalSize) {
+        self.cacheLabel.text = [NSString stringWithFormat:@"当前缓存：%.2fM",totalSize / 1024.0 /1024];
+    }];
 }
 
 -(void)alertShow:(UITapGestureRecognizer *)tap{
@@ -138,6 +149,26 @@
 //按下后松手要动画取消高亮
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //如果点击了清除缓存的话，执行下面这段代码
+    if (indexPath.section == 1 && indexPath.row) {
+        UIAlertController *ac = [UIAlertController alertControllerWithTitle:nil message:@"确定要删除缓存么？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //清除内存缓存
+            [[SDImageCache sharedImageCache]clearMemory];
+            //清除磁盘缓存
+            [[SDImageCache sharedImageCache]clearDisk];
+            //计算缓存
+            [[SDImageCache sharedImageCache]calculateSizeWithCompletionBlock:^(NSUInteger fileCount, NSUInteger totalSize) {
+                self.cacheLabel.text = [NSString stringWithFormat:@"当前缓存：%.2fM",totalSize / 1024.0 /1024];
+            }];
+        }];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            nil;
+        }];
+        [ac addAction:action1];
+        [ac addAction:action2];
+        [self presentViewController:ac animated:YES completion:nil];
+    }
 }
 
 #pragma mark - stretchableTable delegate（必须要实现）

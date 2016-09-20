@@ -54,7 +54,7 @@
     //首先，计算label上面的高度
     CGFloat topToLabelHeight = 50;
     //计算label的高度
-    CGFloat labelHeight = [self getHeighWithTitle:self.detail font:[UIFont systemFontOfSize:15] width:SQSW - 20];
+    CGFloat labelHeight = [self getHeighWithTitle:self.detail font:[UIFont systemFontOfSize:15] width:(SQSW - 20) numberOfLines:3];
     //计算图片所需的高度
     //判断图片的显示张数
     CGFloat picHeight = 0;
@@ -75,11 +75,34 @@
     return topToLabelHeight + labelHeight + picHeight + 10 ;
 }
 
-- (CGFloat )getHeighWithTitle:(NSString *)title font:(UIFont *)font width:(float)width {
+//计算详情界面头部视图的高度
+-(CGFloat)detailHeight{
+    //首先，计算label上面的高度
+    CGFloat topToLabelHeight = 50;
+    //计算label的高度
+    CGFloat labelHeight = [self getHeighWithTitle:self.detail font:[UIFont systemFontOfSize:15] width:(SQSW - 20) numberOfLines:0];
+    //计算图片所需的高度
+    //判断图片的显示张数
+    CGFloat picHeight = 0;
+    int count = (int)self.imagePaths.count;
+    if (!self.imagePaths) {
+        picHeight = 0;
+    }else if (count == 1){//一张图片
+        picHeight = 300;
+    }else if (count == 2 || count == 4){//2张图片或者4张
+        picHeight = 183 * (count / 2) + 10 * (count / 2 - 1);
+    }else if (self.imagePaths.count >= 3){//dayu3张图片
+        picHeight = 123 * (count / 3) + 10 * (count / 3 - 1);
+    }
+    return topToLabelHeight + labelHeight + picHeight + 10 ;
+}
+
+
+- (CGFloat )getHeighWithTitle:(NSString *)title font:(UIFont *)font width:(float)width numberOfLines:(NSInteger)num{
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 0)];
     label.text = title;
     label.font = font;
-    label.numberOfLines = 3;
+    label.numberOfLines = num;
     [label sizeToFit];
     CGFloat height = label.frame.size.height;
     return height;

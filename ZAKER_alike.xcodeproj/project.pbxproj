@@ -78,6 +78,9 @@
 		5457A0B01D7FC519005F4091 /* ArticleTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5457A0AF1D7FC519005F4091 /* ArticleTopView.m */; };
 		5457A0B61D7FF09A005F4091 /* UIView+Navi.m in Sources */ = {isa = PBXBuildFile; fileRef = 5457A0B51D7FF09A005F4091 /* UIView+Navi.m */; };
 		5457EBD21D79628100FEA26C /* WebUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5457EBD11D79628100FEA26C /* WebUtils.m */; };
+		547080491D9150F100D50DD5 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547080471D9150F100D50DD5 /* DetailViewController.m */; };
+		5470804A1D9150F100D50DD5 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547080481D9150F100D50DD5 /* DetailViewController.xib */; };
+		5470804D1D918A0E00D50DD5 /* DetailTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5470804C1D918A0E00D50DD5 /* DetailTableHeaderView.m */; };
 		548064501D8D994E00741C54 /* CommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5480644F1D8D994E00741C54 /* CommentItem.m */; };
 		548064541D8D9ABC00741C54 /* commentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 548064521D8D9ABC00741C54 /* commentCell.m */; };
 		548064551D8D9ABC00741C54 /* commentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548064531D8D9ABC00741C54 /* commentCell.xib */; };
@@ -234,6 +237,11 @@
 		5457A0B51D7FF09A005F4091 /* UIView+Navi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Navi.m"; sourceTree = "<group>"; };
 		5457EBD01D79628100FEA26C /* WebUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebUtils.h; sourceTree = "<group>"; };
 		5457EBD11D79628100FEA26C /* WebUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebUtils.m; sourceTree = "<group>"; };
+		547080461D9150F100D50DD5 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		547080471D9150F100D50DD5 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		547080481D9150F100D50DD5 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		5470804B1D918A0E00D50DD5 /* DetailTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableHeaderView.h; sourceTree = "<group>"; };
+		5470804C1D918A0E00D50DD5 /* DetailTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableHeaderView.m; sourceTree = "<group>"; };
 		5480644E1D8D994E00741C54 /* CommentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentItem.h; sourceTree = "<group>"; };
 		5480644F1D8D994E00741C54 /* CommentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentItem.m; sourceTree = "<group>"; };
 		548064511D8D9ABC00741C54 /* commentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentCell.h; sourceTree = "<group>"; };
@@ -397,6 +405,9 @@
 				5407FB9E1D8A6EBB006EE741 /* CummunityDetailViewController.h */,
 				5407FB9F1D8A6EBB006EE741 /* CummunityDetailViewController.m */,
 				5407FBA01D8A6EBB006EE741 /* CummunityDetailViewController.xib */,
+				547080461D9150F100D50DD5 /* DetailViewController.h */,
+				547080471D9150F100D50DD5 /* DetailViewController.m */,
+				547080481D9150F100D50DD5 /* DetailViewController.xib */,
 				542D34AC1D8CE2D7004803BC /* SendingViewController.h */,
 				542D34AD1D8CE2D7004803BC /* SendingViewController.m */,
 				542D34AE1D8CE2D7004803BC /* SendingViewController.xib */,
@@ -435,6 +446,8 @@
 				542D34A41D8CDE5C004803BC /* FriendCircleCell.h */,
 				542D34A51D8CDE5C004803BC /* FriendCircleCell.m */,
 				542D34A61D8CDE5C004803BC /* FriendCircleCell.xib */,
+				5470804B1D918A0E00D50DD5 /* DetailTableHeaderView.h */,
+				5470804C1D918A0E00D50DD5 /* DetailTableHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -807,6 +820,7 @@
 				5430EBB41D87E4850024B0FC /* TopicTableViewCell.xib in Resources */,
 				5407FBA21D8A6EBB006EE741 /* CummunityDetailViewController.xib in Resources */,
 				5407FBA71D8A801B006EE741 /* FriendCircleViewController.xib in Resources */,
+				5470804A1D9150F100D50DD5 /* DetailViewController.xib in Resources */,
 				542D34B41D8D07D5004803BC /* avator.png in Resources */,
 				5407FBD11D8B89AA006EE741 /* SearchChannelCell.xib in Resources */,
 				542D308B1D8C0FC8004803BC /* EditingView.xib in Resources */,
@@ -882,6 +896,7 @@
 				5407FBC71D8B7A64006EE741 /* SearchSelectedChannelItem.m in Sources */,
 				549BDF591D7587EB00CC8A9D /* HotsspotsViewController.m in Sources */,
 				5457A0A41D7EF199005F4091 /* SubArtiListCell3.m in Sources */,
+				547080491D9150F100D50DD5 /* DetailViewController.m in Sources */,
 				54E75FE81D83AEC700C07924 /* HotTableView.m in Sources */,
 				549BE5111D76DA1000CC8A9D /* HFStretchableTableHeaderView.m in Sources */,
 				54E75FDD1D830E0600C07924 /* WebViewForAdViewController.m in Sources */,
@@ -907,6 +922,7 @@
 				549BDF561D7587B600CC8A9D /* FunViewController.m in Sources */,
 				5457A0A81D7FB1EC005F4091 /* ArticleContentItem.m in Sources */,
 				54579FFB1D7D3F28005F4091 /* CollectionViewCell.m in Sources */,
+				5470804D1D918A0E00D50DD5 /* DetailTableHeaderView.m in Sources */,
 				542D34A31D8CDC88004803BC /* FriendMainTVC.m in Sources */,
 				5430EBC41D88305A0024B0FC /* SelectedTableView.m in Sources */,
 				549BDEE11D743D0200CC8A9D /* main.m in Sources */,

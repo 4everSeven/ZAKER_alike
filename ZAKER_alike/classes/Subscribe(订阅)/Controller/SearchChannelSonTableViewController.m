@@ -50,7 +50,7 @@
     UISearchBar * searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, width, 40)];
     searchBar.delegate = self;
     [searchBar setPlaceholder:@"搜索文章和频道"];
-    searchBar.showsCancelButton = YES;
+    //searchBar.showsCancelButton = YES;
     
     UITextField *searchField = [searchBar valueForKey:@"_searchField"];
     searchField.layer.cornerRadius = 14.f;

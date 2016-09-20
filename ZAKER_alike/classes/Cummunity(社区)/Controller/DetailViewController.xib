@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
+            <connections>
+                <outlet property="bottomHeight" destination="1uU-3g-a15" id="GIv-Jr-wN9"/>
+                <outlet property="bottomView" destination="kHV-ZV-RvX" id="ZcE-Yf-AbZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHV-ZV-RvX">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dla-IQ-TeX">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="a43-cS-ZQA"/>
+                                <constraint firstAttribute="width" constant="40" id="k2n-8x-JwZ"/>
+                            </constraints>
+                            <state key="normal" image="common_icon_comment_s"/>
+                            <connections>
+                                <action selector="clickToComment:" destination="-1" eventType="touchUpInside" id="nWt-Xx-ul5"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Dla-IQ-TeX" firstAttribute="centerY" secondItem="kHV-ZV-RvX" secondAttribute="centerY" id="DtQ-9b-a9U"/>
+                        <constraint firstAttribute="height" constant="35" id="PA5-dl-fsK"/>
+                        <constraint firstItem="Dla-IQ-TeX" firstAttribute="centerX" secondItem="kHV-ZV-RvX" secondAttribute="centerX" id="WWl-JB-bAu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="kHV-ZV-RvX" secondAttribute="bottom" id="1uU-3g-a15"/>
+                <constraint firstItem="kHV-ZV-RvX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qf9-4n-qnD"/>
+                <constraint firstAttribute="trailing" secondItem="kHV-ZV-RvX" secondAttribute="trailing" id="qPK-Sc-zED"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="96.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="common_icon_comment_s" width="32" height="32"/>
+    </resources>
+</document>
