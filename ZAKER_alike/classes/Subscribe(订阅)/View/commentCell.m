@@ -19,8 +19,12 @@
 @implementation commentCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.headerImageView.layer.cornerRadius = self.headerImageView.frame.size.width / 2;
     self.headerImageView.layer.masksToBounds = YES;
+    //self.contentView
+    self.layer.borderWidth = .5;
+    self.layer.borderColor = MainBgColor.CGColor;
 }
 
 -(void)setItem:(CommentItem *)item{

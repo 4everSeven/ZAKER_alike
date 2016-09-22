@@ -43,6 +43,7 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
 //    self.tickButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    CGRect frame = self.isEditingImageView.frame;
 //   self.tickButton.frame = CGRectMake(self.frame.size.width - 30, 0, 30, 30);

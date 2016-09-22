@@ -32,6 +32,7 @@
     [self setTableView];
     [self loadComments];
     self.tableHeaderView = [[DetailTableHeaderView alloc]initWithFrame:CGRectMake(0, 0, SQSW, self.item.detailHeight)];
+    
     self.tableHeaderView.item = self.item;
     self.mainTableView.tableHeaderView = self.tableHeaderView;
     //去除多余的cell
@@ -81,7 +82,8 @@
 
 #pragma mark - 方法 methods
 -(void)setTableView{
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SQSW, SQSH - 35) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SQSW, SQSH ) style:UITableViewStylePlain];
+    tableView.contentInset = UIEdgeInsetsMake(0, 0, 108, 0);
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
@@ -129,7 +131,7 @@
         [bOBj setObject:[BmobUser currentUser] forKey:@"user"];
     
         //设置此条评论 评论的是哪一个消息
-        [bOBj setObject:self.item.user forKey:@"toUser"];
+        [bOBj setObject:self.item.bObj forKey:@"tobObj"];
     
         [bOBj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
             if (isSuccessful) {
@@ -146,7 +148,7 @@
     BmobQuery *query = [BmobQuery queryWithClassName:@"Comment"];
     [query includeKey:@"user"];
     [query orderByDescending:@"updatedAt"];
-    [query whereKey:@"toUser" equalTo:self.item.user];
+    [query whereKey:@"tobObj" equalTo:self.item.bObj];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         self.commentsArray = [CommentItem arrayWithBmobObjectArray:array];
         // NSLog(@"array:%@",self.commentsArray);

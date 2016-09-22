@@ -45,13 +45,13 @@
 #pragma mark - 生命周期 lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [SVProgressHUD show];
+      [SVProgressHUD show];
     [self loadData];
     
     [self setMainT];
-    
+   
     [self setupTableHeaderView];
-    
+    self.mainTableView.separatorStyle = NO;
     
     
     [self loadComments];
@@ -92,24 +92,18 @@
     if (self.item) {
         [WebUtils requestWithUrl:self.item.full_url andCompletion:^(id obj) {
             self.contentItem = obj;
-            
-            
             [self loadWebView:self.contentItem];
             [self.webView reload];
-            
-            [SVProgressHUD dismiss];
         }];
     }
     
     if (self.funItem) {
         [WebUtils requestWithUrl:self.funItem.full_url andCompletion:^(id obj) {
             self.contentItem = obj;
-            
-            
             [self loadWebView:self.contentItem];
             [self.webView reload];
             
-            [SVProgressHUD dismiss];
+           // [SVProgressHUD dismiss];
         }];
     }
     
@@ -120,6 +114,9 @@
     statusView.backgroundColor = [UIColor colorWithHexString:self.item.block_color];
     //statusView.backgroundColor = [UIColor redColor];
     //NSLog(@"bcolor:%@",self.item.block_color);
+    if (self.item.block_color == nil) {
+        statusView.backgroundColor = [UIColor blueColor];
+    }
     [self.view addSubview:statusView];
     self.statusView = statusView;
 }
@@ -148,7 +145,8 @@
     [sendButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     sendButton.frame = CGRectMake(SQSW - 55, 5, 50, 30);
     [sendButton addTarget:self action:@selector(sendComment) forControlEvents:UIControlEventTouchUpInside];
-    [commentView addSubview:sendButton];
+
+        [commentView addSubview:sendButton];
     [self.view addSubview:commentView];
     self.TF = textF;
     self.commentView = commentView;
@@ -204,6 +202,7 @@
         self.webView = webView;
         
         self.topView = topView;
+        //[SVProgressHUD dismiss];
     }
     
     if (self.funItem) {
@@ -220,6 +219,7 @@
         self.webView = webView;
         
         self.funTopView = topView;
+        
     }
     
    // NSLog(@"medias:%@",self.contentItem.media);
@@ -260,7 +260,7 @@
     
 
     [self.mainTableView reloadData];
-    
+    [SVProgressHUD dismiss];
     
 }
 
@@ -448,6 +448,7 @@
     commentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if (self.commentsArray.count == 0) {
         cell.contentView.alpha = 0;
+        cell.layer.borderWidth = 0;
     }else{
         cell.contentView.alpha = 1;
         cell.item = self.commentsArray[indexPath.row];
@@ -472,7 +473,10 @@
     mainTableView.tableFooterView = [UIView new];
     // [mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [mainTableView registerNib:[UINib nibWithNibName:@"commentCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    [self.view addSubview:mainTableView];
+
+        [self.view addSubview:mainTableView];
+    
+    
     self.mainTableView = mainTableView;
 }
 

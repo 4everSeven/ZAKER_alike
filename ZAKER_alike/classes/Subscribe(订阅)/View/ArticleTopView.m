@@ -59,6 +59,9 @@
     self.titleLabel.text = item.title;
     self.authorLabel.text = item.auther_name;
     self.backgroundColor = [UIColor colorWithHexString:item.block_color];
+    if (item.block_color == nil) {
+        self.backgroundColor = [UIColor blueColor];
+    }
     
 }
 
